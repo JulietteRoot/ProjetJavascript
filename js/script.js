@@ -15,7 +15,9 @@
 //affiche(truc);
 //var nb1Element = document.getElementById("nb1");
 function additionner(){
-    var messages = new Array();
+    var messages = [];
+    // Ou :
+    //var messages = new Array(); 
     var valid = true;
     // on récupère directement sa valeur :
     // var nb1 = document.getElementById("nb1").value;
@@ -52,9 +54,10 @@ function additionner(){
         
     }else {
         for (var i = 0 ; i < messages.length ; i++){
-            resultElement.innerHTML=
-            resultElement.innerHTML+
-            messages[i];
+//            resultElement.innerHTML=
+//            resultElement.innerHTML+
+//            messages[i];
+              resultElement.innerHTML += messages[i];
         }
     }
 }
