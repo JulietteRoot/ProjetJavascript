@@ -55,6 +55,11 @@ function checkForm(){
         nb2Element.classList.add("badInput");
     }
     var resultElement = document.getElementById("result");
+    
+    if(document.getElementById("messages")){
+        resultElement.removeChild(document.getElementById("messages"));
+    }
+    
     //resultElement.innerHTML = "";
     // nettoie la place avant d'écrire autre chose, on vide ce qui était présent.
     // sans cela, les précédents messages restent inscrits.
