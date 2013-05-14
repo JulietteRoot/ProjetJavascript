@@ -14,11 +14,12 @@
 //
 //affiche(truc);
 //var nb1Element = document.getElementById("nb1");
-function additionner(){
+//function additionner(){
+function checkForm(){
     var messages = [];
     // Ou :
     //var messages = new Array(); 
-    //var valid = true;
+    var valid = true;
     var nb1Element = document.myform.nb1; // l'élément en lui-même
     var nb1 = nb1Element.value; // sa valeur
     nb1Element.classList.remove("badInput");
@@ -29,7 +30,7 @@ function additionner(){
     // Ou :
     //var nb1 = document.myform.nb1.value;
     
-    var nb1 = document.myform.nb1.value;
+    //var nb1 = document.myform.nb1.value;
     if(! /^\d+$/.test(nb1)){ // \d revient à [0-9]
         messages.push("Le premier nombre est incorrect");
         // push pour ajouter à la fin du tableau
@@ -38,14 +39,13 @@ function additionner(){
         //nb1Element.style.backgroundColor = "red"; // modifie le fond
         nb1Element.classList.add("badInput");
     }
-    
     //var valid = true;
-    var nb2Element = document.myform.nb1; // l'élément en lui-même
+    var nb2Element = document.myform.nb2; // l'élément en lui-même
     var nb2 = nb2Element.value; // sa valeur
     nb2Element.classList.remove("badInput");
     //nb2Element.style.bordercolor = "red";
     
-    var nb2 = document.myform.nb2.value;
+    //var nb2 = document.myform.nb2.value;
     // \d revient à [0-9]
     //var nb2 = document.myform.nb2.value;
     if(! /^\d+$/.test(nb2)){ // \d revient à [0-9]
@@ -55,30 +55,36 @@ function additionner(){
         nb2Element.classList.add("badInput");
     }
     var resultElement = document.getElementById("result");
-    resultElement.innerHTML = "";
+    //resultElement.innerHTML = "";
     // nettoie la place avant d'écrire autre chose, on vide ce qui était présent.
     // sans cela, les précédents messages restent inscrits.
-    if(valid){
+//    if(valid){
         //var somme = nb1 + nb2;
         // comme cela, ça concatène les chiffres, ne les additionne pas.
-        var somme = parseInt(nb1) + parseInt(nb2);
+//        var somme = parseInt(nb1) + parseInt(nb2);
         // fonctionne, les nbs sont considérés maintenant comme des nombres
         // et non des chaînes de caractères.
-        resultElement.innerHTML =
-                nb1 +" + "+nb2+" = "+somme;
+//        resultElement.innerHTML =
+//                nb1 +" + "+nb2+" = "+somme;
         //var somme = Number(nb1) + Number(nb2); // fonctionnerait aussi
         //var somme = parseInt(nb1) + parseInt('azerty'); // renvoie NaN
         //console.log(somme);
         //document.getElementById("result").innerHTML = nb1 +" + "+nb2+" = "+somme;
-        
-    }else {
-        resultElement.innerHTML = "<ul>";
+    if (!valid){
+        //resultElement.innerHTML = "<ul>";
+        var liste = document.createElement("ul");
+        liste.setAttribute("id","messages");
         for (var i = 0 ; i < messages.length ; i++){
 //            resultElement.innerHTML=
 //            resultElement.innerHTML+
 //            messages[i];
-              resultElement.innerHTML += "<li>"+messages[i]+"</li>";
+              //resultElement.innerHTML += "<li>"+messages[i]+"</li>";
+              var item = document.createElement("li");
+              item.innerHTML = messages[i];
+              liste.appendChild(item);
         }
-        resultElement.innerHTML += "</ul>";
+        //resultElement.innerHTML += "</ul>";
+        resultElement.appendChild(liste);
     }
+    return valid;
 }
