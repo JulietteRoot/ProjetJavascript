@@ -18,22 +18,41 @@ function additionner(){
     var messages = [];
     // Ou :
     //var messages = new Array(); 
-    var valid = true;
+    //var valid = true;
+    var nb1Element = document.myform.nb1; // l'élément en lui-même
+    var nb1 = nb1Element.value; // sa valeur
+    nb1Element.classList.remove("badInput");
+    //nb1Element.style.bordercolor = "red";
     // on récupère directement sa valeur :
     // var nb1 = document.getElementById("nb1").value;
     // var nb2 = document.getElementById("nb2").value;
     // Ou :
+    //var nb1 = document.myform.nb1.value;
+    
     var nb1 = document.myform.nb1.value;
     if(! /^\d+$/.test(nb1)){ // \d revient à [0-9]
         messages.push("Le premier nombre est incorrect");
         // push pour ajouter à la fin du tableau
         valid = false;
+        //nb1Element.style.borderColor = "red"; // modifie le contour
+        //nb1Element.style.backgroundColor = "red"; // modifie le fond
+        nb1Element.classList.add("badInput");
     }
-    // \d revient à [0-9]
+    
+    //var valid = true;
+    var nb2Element = document.myform.nb1; // l'élément en lui-même
+    var nb2 = nb2Element.value; // sa valeur
+    nb2Element.classList.remove("badInput");
+    //nb2Element.style.bordercolor = "red";
+    
     var nb2 = document.myform.nb2.value;
+    // \d revient à [0-9]
+    //var nb2 = document.myform.nb2.value;
     if(! /^\d+$/.test(nb2)){ // \d revient à [0-9]
         messages.push("Le deuxième nombre est incorrect");
         valid = false;
+        //nb2Element.style.borderColor = "red";
+        nb2Element.classList.add("badInput");
     }
     var resultElement = document.getElementById("result");
     resultElement.innerHTML = "";
@@ -53,11 +72,13 @@ function additionner(){
         //document.getElementById("result").innerHTML = nb1 +" + "+nb2+" = "+somme;
         
     }else {
+        resultElement.innerHTML = "<ul>";
         for (var i = 0 ; i < messages.length ; i++){
 //            resultElement.innerHTML=
 //            resultElement.innerHTML+
 //            messages[i];
-              resultElement.innerHTML += messages[i];
+              resultElement.innerHTML += "<li>"+messages[i]+"</li>";
         }
+        resultElement.innerHTML += "</ul>";
     }
 }

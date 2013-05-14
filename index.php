@@ -2,11 +2,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <link rel="stylesheet" media="screen" type="test/css" href="css/main.css">
         <title></title>
     </head>
     <body>
         <h1 id="result"></h1>
-        <form action="#" id="myform" name="myform">
+        <form action="#" id="myform" name="myform" method="post">
         <!-- la méthode est en GET par défaut -->
             Nombre 1 : <input type="text" name="nb1" id="nb1"><br>
             Nombre 2 : <input type="text" name="nb2" id="nb2"><br>
