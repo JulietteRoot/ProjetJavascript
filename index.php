@@ -5,7 +5,11 @@
         <title></title>
     </head>
     <body>
-        <h1>Salut !</h1>
+        <h1 id="result"></h1>
+        Nombre 1 : <input type="text" name="nb1" id="nb1"><br>
+        Nombre 2 : <input type="text" name="nb2" id="nb2"><br>
+        <!-- <input type="button" value="push" onclick="alert('ici');"> -->
+        <input type="button" value="push" onclick="additionner();">
         <script type="text/javascript" src="js/script.js"></script>
     </body>
 </html>
