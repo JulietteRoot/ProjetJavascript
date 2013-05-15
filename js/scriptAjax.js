@@ -21,6 +21,7 @@ function getFlavor(){
             break;
         }
     }
+    // Pour envoyer la requête au serveur : open + send :
     xhr.open("GET", "ice_creamer.php?choix="+choix, true);
     // false = synchrone, true = asynchrone
     xhr.send(null); // on lui passe null puisque c'est une requête en GET
