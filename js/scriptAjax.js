@@ -2,6 +2,9 @@ var xhr = null;
 
 function getFlavor(){
     xhr = new XMLHttpRequest();
+    // Fonction anonyme donnée à une variable, qui sera utilisée lors de
+    // l'évènement "onreadystatechange" = à chaque fois que l'état de traitement
+    // de la requête change :
     xhr.onreadystatechange = function(){
         if(xhr.readyState === 4 && xhr.status === 200){
         // code lié au protocole HTTP. 200 = tout ok. Erreur 404, etc.
